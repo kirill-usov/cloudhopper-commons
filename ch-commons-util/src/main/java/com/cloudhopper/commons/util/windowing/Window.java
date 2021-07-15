@@ -135,7 +135,7 @@ public class Window<K,R,P> {
             throw new IllegalArgumentException("size must be > 0");
         }
         this.maxSize = size;
-        this.futures = new ConcurrentHashMap<K,DefaultWindowFuture<K,R,P>>(size*2);
+        this.futures = new ConcurrentHashMap<K,DefaultWindowFuture<K,R,P>>();
         this.lock = new ReentrantLock();
         this.completedCondition = this.lock.newCondition();
         this.pendingOffers = new AtomicInteger(0);
